@@ -98,8 +98,6 @@ button::after {
 	content: "";
 	top: 0;
 	right: -40px;
-	width: 0;
-	height: 0;
 	border-top: 40px solid transparent;
 	border-left: 40px solid black;
 	border-bottom: 40px solid transparent;
