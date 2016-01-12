@@ -1,5 +1,11 @@
 $(document).ready(function(){
-	$("form").submit(function(event) {
+	$("form").submit(function( event ) {
+
+		/* Kod dodany w zwiazku z odpowiedzia Pana Marcina: "Nie powinno byc kakofonii" */
+
+		if ($("audio")) {
+			$("audio").remove();
+		}
 
 		var $yoda = $("input#checkbox_yoda[type=checkbox]:checked").length;
 		var $inputs = $("input[type=checkbox]:checked").length;
@@ -16,10 +22,15 @@ $(document).ready(function(){
 			
 		} else {
 			event.preventDefault();
-			var marsz = document.createElement('audio');
-			marsz.setAttribute('src', './imperial_march.mp3');
-	        marsz.setAttribute('autoplay', 'autoplay');
-	    }
+
+			var $marsz = $("<audio></audio>").attr({
+				"src": "./imperial_march.mp3",
+				"autoplay": "autoplay"
+			});
+
+			$("body").append($marsz);
+
+		}
 
 	});
 });
